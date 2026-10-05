@@ -1,0 +1,376 @@
+/* Географія 6 клас — інтерактивний конспект. Оформлення. */
+
+:root {
+  --bg: #f5f8f6;
+  --bg-soft: #ffffff;
+  --text: #1c2430;
+  --text-dim: #5b6678;
+  --border: #dde5e2;
+  --accent: #1f7a5a;
+  --accent-soft: #e2f3ec;
+  --green: #1e9e63;
+  --green-soft: #e3f7ec;
+  --red: #d64545;
+  --red-soft: #fdeaea;
+  --yellow: #b8860b;
+  --yellow-soft: #fdf5dd;
+  --blue: #2f6df6;
+  --blue-soft: #e8efff;
+  --local: #a8562b;
+  --local-soft: #fbeee5;
+  --game: #7b4fd8;
+  --game-soft: #f0eaff;
+  --potter: #8e2f4f;
+  --potter-soft: #fdeaf0;
+  --horse: #8a6d1f;
+  --horse-soft: #f8f1d8;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(20, 35, 30, .06), 0 6px 20px rgba(20, 35, 30, .06);
+  --sans: "Segoe UI", Inter, system-ui, -apple-system, Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141a19;
+    --bg-soft: #1b2322;
+    --text: #e8eeea;
+    --text-dim: #a2aeb0;
+    --border: #2b3533;
+    --accent: #5cc79c;
+    --accent-soft: #17302a;
+    --green: #4bd18b;
+    --green-soft: #16301f;
+    --red: #ff7a7a;
+    --red-soft: #331a1c;
+    --yellow: #e3bb4c;
+    --yellow-soft: #302a16;
+    --blue: #6f9bff;
+    --blue-soft: #1c2740;
+    --local: #e0a271;
+    --local-soft: #2b1e15;
+    --game: #b699ff;
+    --game-soft: #241d3c;
+    --potter: #f09ab8;
+    --potter-soft: #2e1420;
+    --horse: #d8bb63;
+    --horse-soft: #2a2415;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.62 var(--sans);
+}
+
+a { color: var(--accent); }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.brand span { color: var(--text-dim); font-weight: 600; }
+.brand .globe { font-size: 22px; }
+.spacer { flex: 1; }
+.bar-label { color: var(--text-dim); font-size: 14px; }
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 22px 16px 80px;
+}
+
+h1 { font-size: 30px; margin: 0 0 6px; line-height: 1.2; }
+h2 { font-size: 23px; margin: 28px 0 10px; }
+h3 { font-size: 19px; margin: 18px 0 8px; }
+p { margin: 10px 0; }
+ul, ol { margin: 10px 0; padding-left: 24px; }
+li { margin: 4px 0; }
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.lead { color: var(--text-dim); }
+
+.hero {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.bar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width .3s;
+}
+
+.overall { margin-top: 16px; }
+.overall .bar-label { display: block; margin-bottom: 6px; }
+
+.cards { display: grid; gap: 12px; margin-top: 20px; }
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.card:hover { border-color: var(--accent); }
+.card .num { color: var(--accent); font-weight: 700; }
+.card .title { font-weight: 700; font-size: 18px; margin: 2px 0 4px; }
+.card .sub { color: var(--text-dim); font-size: 15px; }
+.card .stat { color: var(--text-dim); font-size: 14px; margin-top: 10px; }
+.card.exam { border-color: var(--accent); background: var(--accent-soft); }
+
+.goals {
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  margin: 16px 0;
+}
+
+.goals b { display: block; margin-bottom: 4px; }
+
+.block {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px 18px 14px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+
+.block.plain { background: none; border: none; box-shadow: none; padding: 0 2px; }
+
+.block-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0 6px;
+  font-weight: 700;
+}
+
+.tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.done-mark { margin-left: auto; color: var(--green); font-weight: 700; }
+
+.block.note { background: var(--yellow-soft); border-color: var(--yellow); }
+.block.note .tag { background: var(--yellow); color: #fff; }
+.block.cherkasy { background: var(--local-soft); border-color: var(--local); }
+.block.cherkasy .tag { background: var(--local); color: #fff; }
+.block.ukraine { background: var(--blue-soft); border-color: var(--blue); }
+.block.ukraine .tag { background: var(--blue); color: #fff; }
+.block.life { background: var(--green-soft); border-color: var(--green); }
+.block.life .tag { background: var(--green); color: #fff; }
+.block.game { background: var(--game-soft); border-color: var(--game); }
+.block.game .tag { background: var(--game); color: #fff; }
+.block.potter { background: var(--potter-soft); border-color: var(--potter); }
+.block.potter .tag { background: var(--potter); color: #fff; }
+.block.horse { background: var(--horse-soft); border-color: var(--horse); }
+.block.horse .tag { background: var(--horse); color: #fff; }
+.block.errata { background: var(--red-soft); border-color: var(--red); }
+.block.errata .tag { background: var(--red); color: #fff; }
+
+.errata-row { margin: 8px 0; }
+.errata-row.book { color: var(--text-dim); }
+.errata-row.truth b { color: var(--red); }
+.errata-row.say b { color: var(--green); }
+
+.figure { margin: 16px 0; }
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.figure figcaption {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.gallery { display: grid; gap: 12px; margin: 16px 0; }
+.gallery .figure { margin: 0; }
+.gallery.cols2 { grid-template-columns: repeat(2, 1fr); }
+.gallery.cols3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 620px) {
+  .gallery.cols2,
+  .gallery.cols3 { grid-template-columns: 1fr; }
+}
+
+.block .figure { margin: 12px 0 4px; }
+.block.summary { background: var(--accent-soft); border-color: var(--accent); }
+
+.terms { width: 100%; border-collapse: collapse; margin: 8px 0; }
+.terms td { border-top: 1px solid var(--border); padding: 8px 6px; vertical-align: top; }
+.terms td:first-child { font-weight: 700; width: 34%; }
+
+/* Перелік Міжнародних років ООН: рік вузькою колонкою, назва — рештою. */
+.years { width: 100%; border-collapse: collapse; margin: 8px 0; }
+.years td { border-top: 1px solid var(--border); padding: 5px 6px; vertical-align: top; }
+.years td:first-child { font-weight: 700; width: 4.5em; color: var(--accent); }
+
+.book-wording {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+details { margin: 8px 0; }
+summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+
+.options { display: grid; gap: 8px; margin: 10px 0; }
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.option:hover { border-color: var(--accent); }
+.option .letter { font-weight: 700; color: var(--text-dim); }
+.option.right { background: var(--green-soft); border-color: var(--green); }
+.option.wrong { background: var(--red-soft); border-color: var(--red); }
+.option.picked { border-color: var(--accent); background: var(--accent-soft); }
+.option.picked .letter { color: var(--accent); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+
+.chip {
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: var(--accent); }
+.chip.used { opacity: .35; pointer-events: none; }
+.chip.right { background: var(--green-soft); border-color: var(--green); }
+.chip.wrong { background: var(--red-soft); border-color: var(--red); }
+
+.slots { display: grid; gap: 6px; margin: 10px 0; }
+.slot { border: 1px dashed var(--border); border-radius: 10px; padding: 8px 12px; color: var(--text-dim); }
+.slot.filled { border-style: solid; color: var(--text); }
+
+.answer-input {
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 12px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn.flat { background: none; color: var(--accent); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+.ghost-btn {
+  font: inherit;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-dim);
+  border-radius: 10px;
+  padding: 7px 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.verdict { margin-top: 8px; min-height: 22px; font-size: 16px; }
+.verdict.ok { color: var(--green); font-weight: 600; }
+.verdict.no { color: var(--red); }
+
+.navrow { display: flex; justify-content: space-between; gap: 12px; margin-top: 30px; }
+
+.score {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 18px 0;
+  box-shadow: var(--shadow);
+}
+
+footer.page-foot { color: var(--text-dim); font-size: 14px; margin-top: 40px; text-align: center; }
