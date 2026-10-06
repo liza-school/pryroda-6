@@ -15,8 +15,8 @@ const TARGET =
   process.argv[2] || "file:///" + path.resolve(__dirname, "..", "index.html").replace(/\\/g, "/");
 
 // Параграфи курсу. Додаючи новий, допиши його сюди, у index.html і в coverage.json.
-const LESSONS = ["p07", "p08", "p09", "p10"];
-const PAGES = LESSONS.concat("test");
+const LESSONS = ["p07", "p08", "p09", "p10", "p11", "p12"];
+const PAGES = LESSONS.concat("test", "test2");
 
 const CHROME_CANDIDATES = [
   process.env.CHROME_PATH,
