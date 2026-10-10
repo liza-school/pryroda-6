@@ -59,6 +59,7 @@ const COURSE = (function () {
       .toLowerCase()
       .replace(/[’'`ʼ]/g, "'")
       .replace(/\s+/g, " ")
+      .trim()
       .replace(/[.,!?;:]+$/, "")
       .trim();
   }

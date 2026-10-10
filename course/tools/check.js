@@ -200,10 +200,10 @@ function connect(url) {
   // впиши відповідь
   const input = await evaluate(
     "(async () => { const b = document.querySelector('.block.input'); const f = b.querySelector('.answer-input');" +
-      " f.value = '  Ізолятори  '; b.querySelector('.btn').click(); await new Promise(r => setTimeout(r, 50));" +
+      " f.value = '  Ізолятори.  '; b.querySelector('.btn').click(); await new Promise(r => setTimeout(r, 50));" +
       " return b.querySelector('.verdict').className + '|' + b.querySelector('.done-mark').textContent; })()"
   );
-  expect("input приймає відповідь без огляду на регістр і пробіли", input === "verdict ok|✓", input);
+  expect("input приймає відповідь без огляду на регістр, пробіли й крапку", input === "verdict ok|✓", input);
 
   // послідовність: як виникає блискавка
   const order = await evaluate(
