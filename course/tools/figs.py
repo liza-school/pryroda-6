@@ -41,6 +41,11 @@ FIGS = {
     "avto-hetero":      (83, 37, 248, 420, 308),
     "fotosyntez":       (84, 60, 325, 432, 406),
     "zmishane-zhyvl":   (85, 38, 505, 440, 598),
+    # § 19 — живлення тварин
+    "tvaryny-yizha":    (87, 38, 307, 419, 450),
+    "sposoby-zhyvl":    (88, 58, 412, 438, 515),
+    "klasyf-tvaryn":    (90, 58, 107, 438, 194),
+    "travna-systema":   (91, 40, 72, 417, 292),
 }
 
 def main(names):
