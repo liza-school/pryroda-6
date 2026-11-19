@@ -46,6 +46,11 @@ FIGS = {
     "sposoby-zhyvl":    (88, 58, 412, 438, 515),
     "klasyf-tvaryn":    (90, 58, 107, 438, 194),
     "travna-systema":   (91, 40, 72, 417, 292),
+    # § 20 — дихання організмів
+    "prodyhy":          (93, 38, 438, 412, 538),
+    "foto-dyhannya":    (95, 214, 74, 419, 329),
+    "organy-dyhannya":  (97, 38, 72, 428, 153),
+    "shkira-dyhannya":  (97, 38, 430, 420, 524),
 }
 
 def main(names):
