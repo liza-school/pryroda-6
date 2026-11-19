@@ -36,6 +36,11 @@ FIGS = {
     "misyachni-fazy":   (77, 40, 325, 263, 478),
     "zatemnennya-tin":  (79, 39, 187, 162, 303),
     "pryplyvy":         (79, 40, 527, 243, 620),
+    # § 18 — живлення організмів
+    "sklad-organizmiv": (82, 58, 360, 437, 575),
+    "avto-hetero":      (83, 37, 248, 420, 308),
+    "fotosyntez":       (84, 60, 325, 432, 406),
+    "zmishane-zhyvl":   (85, 38, 505, 440, 598),
 }
 
 def main(names):
