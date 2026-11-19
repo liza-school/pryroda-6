@@ -51,6 +51,11 @@ FIGS = {
     "foto-dyhannya":    (95, 214, 74, 419, 329),
     "organy-dyhannya":  (97, 38, 72, 428, 153),
     "shkira-dyhannya":  (97, 38, 430, 420, 524),
+    # § 21 — подразливість, інформація
+    "podraz-roslyn":    (101, 48, 70, 456, 150),
+    "sonyashnyk":       (102, 58, 179, 438, 272),
+    "nervova-systema":  (103, 40, 73, 417, 186),
+    "hidra":            (103, 252, 312, 408, 433),
 }
 
 def main(names):
