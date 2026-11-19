@@ -16,7 +16,7 @@ const TARGET =
 
 // Параграфи курсу. Додаючи новий, допиши його сюди, у index.html і в coverage.json.
 const LESSONS = ["p07", "p08", "p09", "p10", "p11", "p12", "p13", "p14", "p15", "p16", "p17", "p18", "p19", "p20", "p21", "p22"];
-const PAGES = LESSONS.concat("test", "test2", "test3");
+const PAGES = LESSONS.concat("test", "test2", "test3", "test4");
 
 const CHROME_CANDIDATES = [
   process.env.CHROME_PATH,
