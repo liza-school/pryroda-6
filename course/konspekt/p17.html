@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Конспект § 17</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.92em' font-size='92'%3E%F0%9F%8C%99%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap">
+<style>
+/* Layout: один стовпчик-зошит, блакитні блоки «у зошит» + сірі підписи «прочитай». */
+:root{
+  --paper:#fbf8f2;        /* тло-папір */
+  --card:#ffffff;         /* картка розділу */
+  --ink:#232028;          /* основний текст */
+  --muted:#6f6a78;        /* підписи «прочитай» */
+  --copy-bg:#eaf2fe;      /* блок «переписати» */
+  --copy-edge:#4f86d6;    /* рамка блоку «переписати» */
+  --term:#b5541f;         /* терміни */
+  --term-bg:#fdeee2;
+  --line:#e7e1d6;         /* розділювачі */
+  --num:#7a5bd0;          /* номери розділів */
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#191720; --card:#211e2a; --ink:#ece8f1; --muted:#a59fb2;
+    --copy-bg:#1d2a3e; --copy-edge:#5b90dd; --term:#f0a06a; --term-bg:#352419;
+    --line:#332e3e; --num:#a88bf0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#191720; --card:#211e2a; --ink:#ece8f1; --muted:#a59fb2;
+  --copy-bg:#1d2a3e; --copy-edge:#5b90dd; --term:#f0a06a; --term-bg:#352419;
+  --line:#332e3e; --num:#a88bf0; color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:19px; line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:28px 60px;
+}
+.wrap{max-width:760px;margin:0 auto}
+
+h1{
+  font-family:"Comfortaa",sans-serif; font-weight:700;
+  font-size:1.7rem; line-height:1.2; margin:0 0 .25rem;
+  text-wrap:balance;
+}
+.lead{color:var(--muted); font-size:1.02rem; margin:0 0 1.4rem}
+.src{color:var(--muted); font-size:.85rem}
+
+/* легенда */
+.legend{
+  display:flex; flex-wrap:wrap; gap:.6rem 1.2rem;
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:.8rem 1rem; margin:0 0 1.8rem; font-size:.95rem;
+}
+.legend b{font-weight:700}
+.chip{display:inline-flex;align-items:center;gap:.45rem}
+.swatch{width:1.1rem;height:1.1rem;border-radius:5px;flex:none}
+.sw-copy{background:var(--copy-bg);border:2px solid var(--copy-edge)}
+.sw-read{background:transparent;border:2px dashed var(--muted)}
+
+/* розділ */
+section{
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:1.1rem 1.2rem 1.3rem; margin:0 0 1.1rem;
+}
+h2{
+  font-family:"Comfortaa",sans-serif; font-weight:700;
+  font-size:1.18rem; line-height:1.25; margin:.1rem 0 .8rem;
+  display:flex; gap:.6rem; align-items:baseline; text-wrap:balance;
+}
+h2 .n{
+  font-family:"Comfortaa",sans-serif; color:var(--num); font-weight:700;
+  font-size:1.5rem; line-height:1; flex:none;
+}
+
+/* блок, який треба переписати */
+.copy{
+  background:var(--copy-bg); border-left:5px solid var(--copy-edge);
+  border-radius:0 12px 12px 0; padding:.7rem .95rem; margin:.7rem 0;
+}
+.copy p{margin:.35rem 0}
+.copy p:first-child{margin-top:0}
+.copy p:last-child{margin-bottom:0}
+.copy b{color:var(--ink)}
+
+/* підказка «просто прочитай» */
+.read{
+  color:var(--muted); font-size:.95rem; font-style:italic;
+  border-left:3px dashed var(--line); padding:.1rem 0 .1rem .8rem; margin:.6rem 0;
+}
+.read b{font-style:normal;color:var(--ink)}
+
+/* терміни */
+.term{color:var(--term); font-weight:700; font-style:normal}
+
+/* рамка-означення */
+.def{
+  background:var(--term-bg); border:1px solid var(--term);
+  border-radius:12px; padding:.6rem .9rem; margin:.7rem 0;
+}
+.def .word{color:var(--term); font-weight:700}
+
+/* підсумок */
+.summary{border:2px solid var(--num)}
+.summary h2{color:var(--num)}
+.summary ul{margin:.3rem 0 0; padding-left:1.2rem}
+.summary li{margin:.4rem 0}
+
+/* словничок */
+.words{display:flex;flex-wrap:wrap;gap:.5rem}
+.words span{
+  background:var(--term-bg); color:var(--term); font-weight:700;
+  border-radius:999px; padding:.2rem .7rem; font-size:.9rem;
+}
+
+footer{color:var(--muted); font-size:.85rem; text-align:center; margin-top:1.6rem}
+
+@media (max-width:420px){
+  body{font-size:18px}
+  h1{font-size:1.45rem}
+}
+@media print{
+  :root{--paper:#fff;--card:#fff}
+  body{font-size:12pt;padding:0}
+  section,.legend{break-inside:avoid; border-color:#bbb}
+  .copy{background:#eef4fd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>§ 17. Які явища пов'язані з рухами Землі та Місяця</h1>
+  <p class="lead">Земля крутиться — маємо день і ніч. Вісь нахилена — маємо пори року. Місяць тягне воду — маємо припливи. <span class="src">(підручник, стор. 70–79)</span></p>
+
+  <div class="legend">
+    <span class="chip"><span class="swatch sw-copy"></span><span><b>Блакитне</b> — перепиши в зошит</span></span>
+    <span class="chip"><span class="swatch sw-read"></span><span><b>Сіре курсивом</b> — просто прочитай</span></span>
+  </div>
+
+  <div class="copy">
+    <p>Запиши заголовок: <b>§ 17. Які явища пов'язані з рухами Землі та Місяця.</b></p>
+    <p>Місяць — природний супутник Землі. З рухами Землі та Місяця пов'язані явища: <b>зміна дня й ночі, зміна пір року, припливи й відпливи, сонячні та місячні затемнення, зміна фаз Місяця.</b></p>
+  </div>
+
+  <section>
+    <h2><span class="n">1</span> Що утримує Місяць і планети</h2>
+    <div class="def">
+      <span class="word">Гравітація</span> (сила тяжіння) — сила, якою всі тіла притягуються одне до одного. Що більша маса тіла, то сильніше воно притягує.
+    </div>
+    <div class="copy">
+      <p>Земля притягує нас до себе. Сонце утримує планети на орбітах. Земля утримує Місяць.</p>
+    </div>
+    <p class="read">У книжці написано, що ця сила «ще не розгадана». Насправді її пояснили вчені <b>Ньютон</b> і <b>Ейнштейн</b> — без цих знань не працював би GPS у телефоні. Переписувати це не треба, на уроці відповідай за підручником.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span> Чому змінюється день і ніч</h2>
+    <div class="copy">
+      <p>Земля обертається навколо своєї <span class="term">осі</span> — уявної лінії, що проходить крізь полюси й центр. Повний оберт триває <b>24 години</b>.</p>
+      <p>Сонце освітлює лише <b>половину</b> Землі: там день, на іншій половині — ніч. Земля обертається <b>із заходу на схід</b>.</p>
+      <p>Що далі на схід, то раніше сходить Сонце. У Києві Сонце сходить на <b>26 хвилин</b> раніше, ніж у Львові, і на <b>23 хвилини</b> пізніше, ніж у Харкові.</p>
+      <p>Землю поділили на <b>24 часові пояси</b>. Україна лежить у <b>3 поясах</b>, у нас діє час 2-го поясу — <b>київський час</b>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span> Чому змінюються пори року</h2>
+    <div class="copy">
+      <p>Земля рухається навколо Сонця по майже <b>коловій орбіті</b>. Один оберт триває <b>365,25 доби</b>, тому кожен 4-й рік — <b>високосний</b> (366 днів, у лютому 29 днів).</p>
+      <p>Причина зміни пір року — <b>нахил земної осі</b> до площини орбіти (а не відстань до Сонця).</p>
+      <p>Коли в Північній півкулі літо, у Південній — зима. Через 6 місяців усе навпаки.</p>
+    </div>
+    <p class="read">Ключові дати: <b>21 червня</b> — найдовший день (літнє сонцестояння), <b>22 грудня</b> — найкоротший (зимове сонцестояння), <b>21 березня</b> і <b>23 вересня</b> — рівнодення (день = ніч).</p>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span> Чому Місяць змінює вигляд (фази)</h2>
+    <div class="copy">
+      <p>Місяць — <b>холодне тіло</b>. Він не світиться сам, а лише <b>відбиває сонячне світло</b>.</p>
+      <p>Місяць обертається навколо Землі, тому ми бачимо його освітлений бік щоразу по-іншому — так змінюються <span class="term">фази Місяця</span>.</p>
+      <p>Фази по черзі: <b>новий Місяць → перша чверть → повня → остання чверть</b>. Усе повторюється через <b>29,5 доби</b>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span> Як відбуваються затемнення</h2>
+    <div class="copy">
+      <p><span class="term">Сонячне затемнення</span> — коли Місяць (новий) стає між Сонцем і Землею й закриває від нас Сонце.</p>
+      <p><span class="term">Місячне затемнення</span> — коли Земля стає між Сонцем і Місяцем (повня), і Місяць потрапляє в тінь Землі.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span> Чому бувають припливи й відпливи</h2>
+    <div class="copy">
+      <p>Двічі на добу рівень води в океані біля берега піднімається (<span class="term">приплив</span>) і спадає (<span class="term">відплив</span>).</p>
+      <p>Причина — <b>притягання Місяця</b>: він тягне до себе водну оболонку Землі.</p>
+    </div>
+    <p class="read">Найбільший приплив у світі — у затоці Фанді в Канаді, до <b>18 м</b> різниці між високою й низькою водою.</p>
+  </section>
+
+  <section class="summary">
+    <h2>Коротко про головне</h2>
+    <p class="read" style="margin-top:0">Це теж перепиши — це висновки параграфа.</p>
+    <ul>
+      <li>Земля обертається навколо осі із заходу на схід → зміна дня й ночі та різниця в часі.</li>
+      <li>На схід від нас Сонце сходить раніше, на захід — пізніше.</li>
+      <li>Нахил земної осі — причина зміни пір року.</li>
+      <li>Місяць світиться відбитим сонячним світлом → змінюються його фази.</li>
+      <li>Затемнення: сонячне — Місяць між Сонцем і Землею; місячне — Земля між Сонцем і Місяцем.</li>
+      <li>Місяць впливає на воду Землі → виникають припливи й відпливи.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Словничок</h2>
+    <div class="words">
+      <span>гравітація</span><span>вісь Землі</span><span>часовий пояс</span>
+      <span>фази Місяця</span><span>сонячне затемнення</span><span>місячне затемнення</span>
+      <span>приплив</span><span>відплив</span>
+    </div>
+  </section>
+
+  <footer>Пізнаємо природу, 6 клас · § 17, стор. 70–79</footer>
+
+</div>
+</body>
+</html>
